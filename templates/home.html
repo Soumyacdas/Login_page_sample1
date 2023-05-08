@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Basic Nav</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<style> 
+body{
+    background-color: white;
+}
+</style>
+</head>
+<body>
+<div class="m-4" >
+    <nav class="navbar navbar-expand-lg bg-light">
+        <a href="" class="nav-item nav-link active">Home</a> 
+        <a href="#" class="nav-item nav-link">Profile</a>
+        <a href="#" class="nav-item nav-link">Messages</a>
+        <a href="{% url 'logout' %}" class="nav-item nav-link " tabindex="-1">logout</a>
+        
+    </nav>
+    <div >
+        <br>
+        <h2 class='text-center'>Welcome to Travelling !!!</h2>
+        <hr>
+        {% for dest in dests %}
+        <div class="container text-center inline-block">
+        <div class="card text-center mx-3 my-3 bg-light" style="width: 18rem;display: inline-block;">
+            <img class="card-img-top" src="{{dest.img.url}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{dest.name}}</h5>
+              <p class="card-text">{{dest.description}}</p>
+              <a href="#" class="btn btn-primary">More details</a>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+          
+          
+        
+        
+      </div>
+      
+      
+      </div>
+</div>
+</body>
+</html>
